@@ -1,7 +1,7 @@
 import path from 'path';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import webpack from 'webpack';
 const rootDir = path.resolve();
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -58,15 +58,18 @@ const config = {
     ]
   },
   plugins: [
+    // 이미지 폴더 dist/images 로 복사
     new CopyPlugin({
       patterns: [{from: path.resolve('assets', 'images'), to: 'images'}],
     }),
-    new ForkTsCheckerWebpackPlugin(),
+    // 번들된 파일들을 html 파일에 link 태그, script 태그로 추가해줌
     new HtmlWebpackPlugin({
       inject: true,
       filename: 'index.html',
       template: path.resolve('src', 'index.html')
-    })
+    }),
+    // webpack 진행상태 표시
+    new webpack.ProgressPlugin()
   ],
   resolve: {
     extensions: ['.js', '.ts', '.tsx']

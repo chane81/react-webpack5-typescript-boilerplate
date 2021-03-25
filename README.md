@@ -42,37 +42,120 @@
 
     - 파일이 위치하는 서버상의 경로
 
-  - module
+- module
 
-    - 의존성 트리의 모듈 처리방식을 설정, 로더들이 위치함
-    - [test] - 로더가 읽을 파일을 정규식으로 정의
-    - [use] - 로더 및 로더의 옵션들을 정의
-    - [exclude] - 컴파일하지 않을 폴더/파일을 정의
-    - [include] - 컴파일할 폴더/파일을 정의
-    - 스타일 (css, sass)
-      - style-loader, css-loader, sass-loader
-    - 이미지파일
+  - 의존성 트리의 모듈 처리방식을 설정, 로더들이 위치함
+  - [test] - 로더가 읽을 파일을 정규식으로 정의
+  - [use] - 로더 및 로더의 옵션들을 정의
+  - [exclude] - 컴파일하지 않을 폴더/파일을 정의
+  - [include] - 컴파일할 폴더/파일을 정의
+  - 스타일 (css, sass)
+    - style-loader, css-loader, sass-loader
+  - 이미지파일
 
-      - 기존 웹팩5 이전에는 아래가 사용됨
+    - 기존 웹팩5 이전에는 아래가 사용됨
 
-        - file-loader
-        - url-loader
-        - raw-loader
+      - file-loader
+      - url-loader
+      - raw-loader
 
-      - 웹팩5부터 아래가 사용됨
+    - 웹팩5부터 아래가 사용됨
 
-        - asset/resource (file-loader)
-        - asset/inline (url-loader)
-        - asset/source (raw-loader)
-        - asset - automatically
+      - asset/resource (file-loader)
+      - asset/inline (url-loader)
+      - asset/source (raw-loader)
+      - asset - automatically
 
-      - 리액트 컴포넌트 (jsx, tsx)
-        - babel-loader (jsx)
-        - ts-loader (tsx)
+    - 리액트 컴포넌트 (jsx, tsx)
+      - babel-loader (jsx)
+      - ts-loader (tsx)
 
-  - plugins
+- plugins
 
-    - 번들링 후 결과물에 대한 처리를 할 다양한 플러그인에 대한 설정을 함
-    - 자주사용되는 플러그인
-      - https://agal.tistory.com/71
-      - https://velog.io/@cckn/%EC%9B%B9%ED%8C%A9-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EB%B0%8F-%EC%A3%BC%EC%9A%94-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8
+  - 번들링 후 결과물에 대한 처리를 할 다양한 플러그인에 대한 설정을 함
+  - 플러그인 리스트
+    <https://github.com/webpack-contrib/awesome-webpack#webpack-plugins>
+  - 자주사용되는 플러그인
+    - <https://agal.tistory.com/71>
+    - <https://velog.io/@cckn/%EC%9B%B9%ED%8C%A9-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8-%EC%82%AC%EC%9A%A9%EB%B2%95-%EB%B0%8F-%EC%A3%BC%EC%9A%94-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8>
+
+## 웹팩 5에서 달라진 점
+
+- 개발 서버 설정
+
+  - 설명
+
+    - [babelrc] 설정의 [plugins]에 [react-refresh/babel] 을추가
+    - [webpack.dev.js] 파일에 [@pmmmwh/react-refresh-webpack-plugin] 라이브러리 추가하고 [plugins] 에 추가
+      - 참고: /webpack/dev.js 참고
+
+  - 라이브러리
+
+    - 기존
+      - react-hot-loader
+    - 변경
+      - react-refresh
+      - @pmmmwh/react-refresh-webpack-plugin
+
+  - [package.json] [scripts] 변경
+
+  ```json
+  # 기존
+  "dev": "webpack-dev-server --open"
+
+  # 웹팩 5
+  "dev": "webpack serve"
+  ```
+
+## 디펜던시 설명
+
+```json
+"devDependencies": {
+  "//": "babel =======================================================",
+  "@babel/core": "^7.11.6",
+  "@babel/plugin-proposal-class-properties": "^7.13.0",
+  "@babel/plugin-proposal-export-namespace-from": "^7.12.13",
+  "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+  "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+  "@babel/preset-env": "^7.13.12",
+  "@babel/preset-react": "^7.12.13",
+  "@babel/register": "^7.13.8",
+
+  "//": "webpack dev server =======================================================",
+  "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+  "react-refresh": "^0.9.0",
+
+  "//": "webpack loader =======================================================",
+  "babel-loader": "^8.1.0",
+  "css-loader": "^5.1.3",
+  "file-loader": "^6.2.0",
+  "sass-loader": "^11.0.1",
+  "style-loader": "^2.0.0",
+  "ts-loader": "^8.0.4",
+
+  "//": "webpack plugin =======================================================",
+  "clean-webpack-plugin": "^3.0.0",
+  "copy-webpack-plugin": "^8.1.0",
+  "html-webpack-plugin": "^5.3.1",
+
+  "//": "webpack lib =======================================================",
+  "webpack": "^5.27.2",
+  "webpack-cli": "^4.5.0",
+  "webpack-dev-server": "^3.11.2",
+  "webpack-merge": "^5.7.3",
+
+  "//": "@types =======================================================",
+  "@types/react": "^17.0.3",
+  "@types/react-dom": "^17.0.3",
+  "@types/react-router-dom": "^5.1.7",
+  "@types/styled-components": "^5.1.9",
+
+  "//": "etc =======================================================",
+  "core-js": "^3.9.1",
+  "cross-env": "^7.0.2",
+  "typescript": "4.1.3",
+
+  "//": "sass loader 와 같이 설치 =======================================================",
+  "sass": "^1.32.8",
+}
+```

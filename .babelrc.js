@@ -12,13 +12,6 @@ module.exports = (api) => {
                     targets: {
                         browsers: ['>1%', 'last 4 versions', 'not ie < 9'],
                     },
-
-                    // // modules를 false로 해야 최신모듈 시스템이 그대로 유지되어서 트리 쉐이킹이 된다.
-                    // // ES2015 모듈 시스템에서 import되지 않은 export들을 정리해주는 기능
-                    // // 용량이 많이 줄어들기 때문에 꼭 트리 쉐이킹을 사용
-                    // // commonJS나 AMD, UMD같은 모듈 시스템을 사용해야하는 클라이언트에서는 쓰면 제대로 처리되지 않음
-                    // modules: false,
-
                     useBuiltIns: 'usage',
                     debug: false,
                     corejs: 3,
