@@ -8,7 +8,7 @@ function FunctionDefault() {
 
   return (
     <div>
-      <img src='/images/flower-1.jpg' />
+      <img src='/images/flower-1.jpg' width='500' />
       <h1>Default Export Function</h1>
     </div>
   );
