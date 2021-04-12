@@ -137,6 +137,8 @@
   "clean-webpack-plugin": "^3.0.0",
   "copy-webpack-plugin": "^8.1.0",
   "html-webpack-plugin": "^5.3.1",
+  "terser-webpack-plugin": "^5.1.1",
+  "speed-measure-webpack-plugin": "^1.5.0",
 
   "//": "webpack lib ===============================================================",
   "webpack": "^5.27.2",

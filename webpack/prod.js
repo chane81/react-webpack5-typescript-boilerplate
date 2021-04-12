@@ -1,5 +1,8 @@
 import TerserJSPlugin from 'terser-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
+
+const smp = new SpeedMeasurePlugin();
 
 const config = {
   // minify
@@ -19,4 +22,4 @@ const config = {
   }
 };
 
-export default config;
+export default smp.wrap(config);
