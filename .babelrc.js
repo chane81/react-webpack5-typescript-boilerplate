@@ -21,11 +21,11 @@ module.exports = (api) => {
             '@babel/preset-typescript'
         ],
         plugins: [
+            "@emotion",
             '@babel/plugin-syntax-dynamic-import',
             '@babel/plugin-proposal-class-properties',
             '@babel/plugin-proposal-export-namespace-from',
             '@babel/plugin-proposal-object-rest-spread',
-            "@emotion",
             // Applies the react-refresh Babel plugin on non-production modes only
             mode !== 'production' && 'react-refresh/babel',
         ].filter(Boolean),
