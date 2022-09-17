@@ -1,14 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 /** props */
 interface IProps {
   className?: string;
+  children?: ReactNode;
 }
 
 /** style */
-const HomeWrapper = styled('div')`
+const HomeWrapper = styled.div`
   header {
     display: flex;
     justify-content: space-evenly;
@@ -18,7 +19,7 @@ const HomeWrapper = styled('div')`
   }
 `;
 
-const Master: React.FC<IProps> = (props) => {
+const Master: FC<IProps> = (props) => {
   return (
     <HomeWrapper>
       <header>
