@@ -1,10 +1,11 @@
 import TerserJSPlugin from 'terser-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
+import { Configuration } from 'webpack';
 
 const smp = new SpeedMeasurePlugin();
 
-const config = {
+const config: Configuration = {
   // minify
   optimization: {
     minimize: true,

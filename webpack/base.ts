@@ -1,12 +1,12 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
-import webpack from 'webpack';
-const rootDir = path.resolve();
+import webpack, { Configuration } from 'webpack';
 
+const rootDir = path.resolve();
 const isDev = process.env.NODE_ENV !== 'production';
 
-const config = {
+const config: Configuration = {
   target: isDev ? 'web' : ['web', 'es5'],
   mode: isDev ? 'development' : 'production',
   devtool: isDev ? 'cheap-module-source-map' : 'source-map',
@@ -22,11 +22,11 @@ const config = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(scss|sass)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       // 기존 file-loader, url-loader, raw-loader 는 아래로 대체됨
       // asset/resource (file-loader), asset/inline (url-loader), asset/source (raw-loader), asset - automatically chooses
@@ -34,6 +34,14 @@ const config = {
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource'
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true
+        },
+        exclude: /node_modules/
       },
       {
         test: /\.jsx?$/,
@@ -46,21 +54,13 @@ const config = {
           }
         ],
         exclude: /node_modules/
-      },
-      {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: true
-        },
-        exclude: /node_modules/
       }
     ]
   },
   plugins: [
     // 이미지 폴더 dist/images 로 복사
     new CopyPlugin({
-      patterns: [{from: path.resolve('assets', 'images'), to: 'images'}],
+      patterns: [{ from: path.resolve('assets', 'images'), to: 'images' }]
     }),
     // 번들된 파일들을 html 파일에 link 태그, script 태그로 추가해줌
     new HtmlWebpackPlugin({

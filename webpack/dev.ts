@@ -1,14 +1,15 @@
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+import { Configuration } from 'webpack';
 
-const config = {
+const config: Configuration = {
   devServer: {
     hot: true,
     host: 'localhost',
     port: 3000,
     historyApiFallback: true,
-    open: true,    
+    open: true,
     devMiddleware: {
-      publicPath: '/',
+      publicPath: '/'
     }
   },
   plugins: [new ReactRefreshWebpackPlugin()]

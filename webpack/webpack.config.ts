@@ -7,6 +7,8 @@ import prodConfig from './prod';
 const isDev = process.env.NODE_ENV !== 'production';
 
 // webpack config merge
-const configs = isDev ? merge(baseConfig, devConfig) : merge(baseConfig, prodConfig);
+const configs = isDev
+  ? merge(baseConfig, devConfig)
+  : merge(baseConfig, prodConfig);
 
 export default () => configs;
