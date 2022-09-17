@@ -16,7 +16,7 @@ const config = {
   output: {
     path: path.resolve(rootDir, 'dist'),
     filename: isDev ? '[name].[fullhash].js' : '[name].[contenthash].js',
-    publicPath: './'
+    publicPath: '/'
   },
   module: {
     rules: [

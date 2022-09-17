@@ -7,8 +7,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "sourceMap": true,
     "jsx": "react",
-    "baseUrl": "./",
-    "rootDir": "./",
+    "baseUrl": ".",
     "allowSyntheticDefaultImports": true
   },
   "include": ["src"],

@@ -6,8 +6,10 @@ const config = {
     host: 'localhost',
     port: 3000,
     historyApiFallback: true,
-    open: true,
-    publicPath: '/'
+    open: true,    
+    devMiddleware: {
+      publicPath: '/',
+    }
   },
   plugins: [new ReactRefreshWebpackPlugin()]
 };
