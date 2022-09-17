@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
@@ -18,9 +18,9 @@
     "@babel/preset-react": "^7.12.13",
     "@babel/register": "^7.13.8",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "@types/react-router-dom": "^5.1.7",
+    "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.9",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ClassDefault from './components/ClassDefault';
 import { ClassNamed } from './components/ClassNamed';
 import FunctionDefault from './components/FunctionDefault';
@@ -20,9 +20,11 @@ function App() {
         <LazyComponent />
       </React.Suspense>
       <Router>
-        <Route exact={true} path={'/'} component={BadStateUpdate} />
-        <Route path={'/BadStateUpdate'} component={BadStateUpdate} />
-        <Route path={'/BestStateUpdate'} component={BestStateUpdate} />
+        <Routes>
+          <Route path='/' element={<BadStateUpdate />} />
+          <Route path='/BadStateUpdate' element={<BadStateUpdate />} />
+          <Route path='/BestStateUpdate' element={<BestStateUpdate />} />
+        </Routes>
       </Router>
     </div>
   );
