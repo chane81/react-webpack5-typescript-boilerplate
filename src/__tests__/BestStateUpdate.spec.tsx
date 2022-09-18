@@ -44,7 +44,7 @@ describe('<BestStateUpdate />', () => {
     await userEvent.click(btnMultiInc);
     await userEvent.click(btnMultiInc);
 
-    const divText = await screen.getByText(/incState?/i);
+    const divText = screen.getByText(/incState?/i);
 
     expect(divText).toHaveTextContent('incState: 6');
   });
