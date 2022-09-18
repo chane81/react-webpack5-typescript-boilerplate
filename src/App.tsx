@@ -4,9 +4,8 @@ import ClassDefault from './components/ClassDefault';
 import { ClassNamed } from './components/ClassNamed';
 import FunctionDefault from './components/FunctionDefault';
 import { FunctionNamed } from './components/FunctionNamed';
-import BadStateUpdate from './components/BadStateUpdate';
-import BestStateUpdate from './components/BestStateUpdate';
-
+import BadStateUpdate from './pages/BadStateUpdate';
+import BestStateUpdate from './pages/BestStateUpdate';
 const LazyComponent = React.lazy(() => import('./components/LazyComponent'));
 
 function App() {

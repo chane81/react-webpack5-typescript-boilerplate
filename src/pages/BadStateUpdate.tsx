@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Master from './Master';
+import Master from '../components/Master';
 import './BestStateUpdate.scss';
 
 const BadStateUpdate = () => {
@@ -17,10 +17,12 @@ const BadStateUpdate = () => {
     <Master>
       <div>incState: {incState}</div>
       <div>
-        <button onClick={handleInc} className='test-app'>
+        <button id='btnInc' onClick={handleInc} className='test-app'>
           숫자증가
         </button>
-        <button onClick={handleIncMulti}>한번에 여러번 증가</button>
+        <button id='btnMultiInc' onClick={handleIncMulti}>
+          한번에 여러번 증가
+        </button>
       </div>
     </Master>
   );

@@ -6,10 +6,10 @@
     "moduleResolution": "node",
     "lib": ["dom", "dom.iterable", "esnext"],
     "sourceMap": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
+  "include": ["src", "src/__tests__"],
   "exclude": ["**/node_modules"]
 }
