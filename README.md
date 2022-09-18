@@ -160,5 +160,16 @@
 
   "//": "sass loader 와 같이 설치 ======================================================",
   "sass": "^1.54.9",
+
+  "//": "testing ======================================================",
+  "@testing-library/jest-dom": "^5.16.5",
+  "@testing-library/react": "^13.4.0",
+  "@testing-library/user-event": "^14.4.3",
+  "@types/jest": "^29.0.3",
+  "identity-obj-proxy": "^3.0.0",
+  "jest": "^29.0.3",
+  "jest-environment-jsdom": "^29.0.3",
+  "jest-watch-typeahead": "^2.2.0",
+  "ts-jest": "^29.0.1",
 }
 ```
